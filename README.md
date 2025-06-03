@@ -20,6 +20,12 @@ You can install Compulator directly from this GitHub repository using pip:
 pip install git+https://github.com/A-lai1/compulator.git
 ```
 
+If that doesn't work, try:
+
+```bash
+python3 -m pip install git+https://github.com/A-lai1/compulator.git
+```
+
 After installing, run the program in your terminal using:
 ```bash
 compulator
