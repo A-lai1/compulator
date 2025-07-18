@@ -223,11 +223,16 @@ def _solve_expression(expression: str) -> str:
                     if operation_index < 0 or _is_negative_or_positive(expression, operation_index): continue
                 else: operation_index = _get_index(expression, char, 1)
 
-                old_sign_count = _count(expression, sign)
+                old_total_minus_signs = _count(expression, '-')
+                old_total_plus_signs = _count(expression, '+')
+
                 expression = _perform_operation(expression, char, operation_index)
-                new_sign_count = _count(expression, sign)
-                if sign == '+': plus_sign_count -= (old_sign_count - new_sign_count)
-                else: minus_sign_count -= (old_sign_count - new_sign_count)
+
+                new_total_minus_signs = _count(expression, '-')
+                new_total_plus_signs = _count(expression, '+')
+
+                minus_sign_count -= (old_total_minus_signs - new_total_minus_signs)
+                plus_sign_count -= (old_total_plus_signs - new_total_plus_signs)
         #if has_operator is false, no need to check expression any further
         if has_operator == False: break
     return expression
